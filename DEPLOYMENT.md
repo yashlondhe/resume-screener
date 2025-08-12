@@ -41,7 +41,7 @@ This guide covers deploying the AI-powered Resume Screening application to produ
 # Initialize git repository (if not already done)
 git init
 git add .
-git commit -m "Initial commit - Resume Screener v1.0"
+   git commit -m "Initial commit - Resume Screener v1.0"
 
 # Create GitHub repository and push
 git remote add origin https://github.com/yashlondhe/resume-screener.git

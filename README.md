@@ -1,15 +1,39 @@
-# Resume Screener
+# 🎯 AI-Powered Resume Screener
 
-An AI-powered resume screening application that analyzes and rates resumes based on multiple criteria including content quality, structure, formatting, completeness, and length appropriateness.
+> **Production-Ready** | **Full-Stack** | **AI-Powered** | **No Database Required**
 
-## Features
+An AI-powered resume screening application that uses AI to analyze and rate resumes based on multiple criteria including content quality, structure, formatting, completeness, and length appropriateness.
 
-- **File Upload**: Supports PDF, DOC, and DOCX resume formats
-- **AI Analysis**: Uses OpenAI GPT for intelligent resume evaluation
+![Resume Screener](https://img.shields.io/badge/Status-Production%20Ready-brightgreen) ![License](https://img.shields.io/badge/License-MIT-blue) ![Node](https://img.shields.io/badge/Node.js-18+-green) ![React](https://img.shields.io/badge/React-19+-blue)
+
+## ✨ Features
+
+### 🎨 **Professional UI/UX**
+- **Tier-Based Design**: Bronze/Silver/Gold color scheme for Free/Premium/Enterprise users
+- **Modern Interface**: Clean, responsive design with drag-and-drop functionality
+- **User Authentication**: Complete API key management and user registration system
+- **Profile Management**: Dropdown with API key access, user info, and account settings
+
+### 🤖 **AI-Powered Analysis**
+- **Advanced AI**: Uses OpenAI GPT for intelligent resume evaluation
+- **Industry-Specific**: Tailored scoring for different industries
+- **ATS Compatibility**: Checks resume compatibility with Applicant Tracking Systems
 - **Comprehensive Scoring**: Rates resumes on 5 key criteria (1-10 scale)
 - **Detailed Feedback**: Provides strengths, improvements, and actionable insights
-- **Modern UI**: Clean, responsive interface with drag-and-drop functionality
-- **Real-time Processing**: Instant analysis with progress indicators
+
+### 🏢 **Business Features**
+- **Tiered Service**: Free, Premium, and Enterprise plans with usage quotas
+- **API Key Management**: Complete user lifecycle with registration and key management
+- **Usage Tracking**: Real-time analytics and usage monitoring
+- **Admin Dashboard**: Full system management with health monitoring
+- **Rate Limiting**: Intelligent rate limiting per user tier
+
+### 🚀 **Production Features**
+- **No Database Required**: File-based storage and in-memory analytics
+- **CI/CD Ready**: GitHub Actions workflow for automated deployments
+- **Free Hosting**: Configured for Vercel (frontend) and Railway (backend)
+- **Monitoring**: System health checks and performance metrics
+- **Security**: Helmet security, CORS, CSP compliance
 
 ## Tech Stack
 
@@ -190,6 +214,75 @@ PORT=5000
 CLIENT_URL=http://localhost:3000
 NODE_ENV=development
 ```
+
+## Deployment
+
+### 🚀 Quick Deployment
+
+#### One-Click Production Setup
+```bash
+# Run the automated deployment script
+./deploy.sh
+```
+
+#### Manual Deployment Steps
+
+1. **Prepare for Production**
+   ```bash
+   # Install dependencies and run tests
+   cd server && npm install && npm test
+   cd ../client && npm install && npm test
+   ```
+
+2. **Deploy Backend (Railway)**
+   - Visit [railway.app](https://railway.app) and connect GitHub
+   - Import repository, set root directory to `server`
+   - Add environment variables:
+     ```
+     OPENAI_API_KEY=your_openai_key
+     CLIENT_URL=https://your-app.vercel.app
+     ADMIN_PASSWORD=your_secure_password
+     ```
+
+3. **Deploy Frontend (Vercel)**
+   - Visit [vercel.com](https://vercel.com) and import GitHub repository
+   - Set root directory to `client`
+   - Add environment variable:
+     ```
+     REACT_APP_API_URL=https://your-backend.railway.app
+     ```
+
+4. **Access Your Application**
+   - **Frontend**: `https://your-app.vercel.app`
+   - **Admin Dashboard**: `https://your-backend.railway.app/admin.html`
+
+📚 **Detailed Guide**: See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete instructions.
+
+### 💰 Cost Breakdown (Free Tier)
+
+| Service | Free Tier Limits | Cost |
+|---------|------------------|------|
+| **Vercel** | 100GB bandwidth, unlimited deployments | $0/month |
+| **Railway** | $5 credit, 500 hours runtime | $0/month |
+| **GitHub Actions** | 2,000 minutes CI/CD | $0/month |
+| **OpenAI API** | Pay per use (typically $1-5/month) | ~$1-5/month |
+
+**Total Monthly Cost**: ~$1-5 (OpenAI API usage only)
+
+### 📊 System Status
+
+#### Health Monitoring
+The admin dashboard provides real-time system status:
+- 🟢 **Healthy**: Error rate < 20%, normal operation
+- 🟡 **Warning**: Error rate 20-50%, monitoring required  
+- 🔴 **Critical**: Error rate > 50%, immediate attention needed
+- ⚪ **Idle**: No recent activity, system ready
+
+#### Performance Metrics
+- Request volume and success rates
+- Cache hit rates and response times
+- Memory usage and system uptime
+- User analytics and API usage tracking
 
 ## Fallback Analysis
 
