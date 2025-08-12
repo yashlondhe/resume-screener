@@ -64,17 +64,44 @@ app.use(helmet({
   },
 })); // Security headers with CSP configuration
 
-// CORS configuration
-app.use(cors({
-  origin: [
-    process.env.CLIENT_URL || 'http://localhost:3000',
-    'https://resume-screener-frontend-seven.vercel.app',
-    'http://localhost:3000',
-    'http://localhost:3001'
-  ],
+// CORS configuration with preflight and options handling
+const allowedOrigins = [
+  'https://resume-screener-frontend-seven.vercel.app',
+  'http://localhost:3000',
+  'http://localhost:3001',
+  process.env.CLIENT_URL
+].filter(Boolean);
+
+// Enable CORS pre-flight for all routes
+app.options('*', cors({
+  origin: allowedOrigins,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-API-Key', 'X-Requested-With'],
+  exposedHeaders: ['Content-Range', 'X-Total-Count'],
+  maxAge: 600 // Cache preflight for 10 minutes
+}));
+
+// Apply CORS to all API routes
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // Check if the origin is in the allowed list
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    
+    // For non-matching origins, still allow the request but log it
+    console.warn(`CORS request from non-whitelisted origin: ${origin}`);
+    return callback(null, true);
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-API-Key', 'X-Requested-With'],
+  exposedHeaders: ['Content-Range', 'X-Total-Count'],
+  maxAge: 600 // Cache preflight results for 10 minutes
 }));
 
 // Enhanced rate limiting with different limits for different endpoints
@@ -99,8 +126,15 @@ app.use('/api/', createRateLimit(15 * 60 * 1000, 100, 'Too many API requests. Pl
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Serve static files (admin dashboard)
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files (admin dashboard) with CORS headers
+app.use(express.static(path.join(__dirname, 'public'), {
+  setHeaders: (res, path) => {
+    res.setHeader('Access-Control-Allow-Origin', allowedOrigins.join(','));
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-API-Key, X-Requested-With');
+  }
+}));
 
 // Create necessary directories
 const uploadsDir = path.join(__dirname, 'uploads');
