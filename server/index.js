@@ -716,12 +716,15 @@ setInterval(async () => {
   }
 }, 60 * 60 * 1000);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log('Performance features enabled:');
-  console.log('- Response compression');
-  console.log('- File optimization');
-  console.log('- Memory caching');
-  console.log('- Background job processing');
-  console.log('- Enhanced rate limiting');
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`🔗 Health check: http://localhost:${PORT}/api/health`);
+  console.log('✅ Performance features enabled:');
+  console.log('   - Response compression');
+  console.log('   - File optimization');
+  console.log('   - Memory caching');
+  console.log('   - Background job processing');
+  console.log('   - Enhanced rate limiting');
+  console.log('🎯 Resume Screener API ready for requests!');
 });
