@@ -8,7 +8,7 @@
     "start:local": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "build": "echo \"No build step required for Node.js server\"",
+    "build": "echo \"Build handled by Railway configuration\"",
     "postinstall": "node -e \"console.log('Server dependencies installed successfully')\"",
     "health-check": "curl -f http://localhost:5000/api/health || exit 1"
   },
