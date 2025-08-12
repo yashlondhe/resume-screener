@@ -1,15 +1,8 @@
 {
   "version": 2,
   "name": "resume-screener-frontend",
-  "builds": [
-    {
-      "src": "client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
+  "buildCommand": "cd client && npm run build",
+  "outputDirectory": "client/build",
   "routes": [
     {
       "src": "/static/(.*)",
@@ -19,7 +12,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/client/$1"
+      "dest": "/index.html"
     }
   ]
 }
