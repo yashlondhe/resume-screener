@@ -22,6 +22,21 @@ const PORT = process.env.PORT || 5000;
 // Trust proxy for Railway deployment (fixes rate limiting behind proxy)
 app.set('trust proxy', 1);
 
+// Serve React frontend static files
+if (process.env.NODE_ENV === 'production') {
+  const clientBuildPath = path.join(__dirname, '../client/build');
+  app.use(express.static(clientBuildPath));
+  
+  // Serve React app for all non-API routes
+  app.get('*', (req, res, next) => {
+    // Skip API routes and admin routes
+    if (req.path.startsWith('/api') || req.path.startsWith('/admin')) {
+      return next();
+    }
+    res.sendFile(path.join(clientBuildPath, 'index.html'));
+  });
+}
+
 // Performance middleware
 app.use(compression()); // Enable gzip compression
 app.use(helmet({
