@@ -300,23 +300,68 @@ class APIKeyManager {
 
   // Upgrade/downgrade tier
   updateTier(apiKey, newTier) {
-    const keyData = this.apiKeys.keys[apiKey];
-    if (!keyData) return false;
+    try {
+      console.log(`Attempting to update tier for API key: ${apiKey.substring(0, 12)}... to tier: ${newTier}`);
+      
+      // Validate tier
+      const validTiers = ['free', 'premium', 'enterprise'];
+      if (!validTiers.includes(newTier)) {
+        console.error(`Invalid tier: ${newTier}. Valid tiers are: ${validTiers.join(', ')}`);
+        return false;
+      }
 
-    const user = this.users.users[keyData.userId];
-    if (!user) return false;
+      // Check if API key exists
+      const keyData = this.apiKeys.keys[apiKey];
+      if (!keyData) {
+        console.error(`API key not found: ${apiKey.substring(0, 12)}...`);
+        console.log(`Available API keys: ${Object.keys(this.apiKeys.keys).length}`);
+        return false;
+      }
 
-    keyData.tier = newTier;
-    keyData.limits = this.getTierLimits(newTier);
-    keyData.lastModified = new Date().toISOString();
+      console.log(`Found API key data for user: ${keyData.userId}`);
 
-    user.tier = newTier;
-    user.lastModified = new Date().toISOString();
+      // Check if user exists
+      const user = this.users.users[keyData.userId];
+      if (!user) {
+        console.error(`User not found for userId: ${keyData.userId}`);
+        console.log(`Available users: ${Object.keys(this.users.users).length}`);
+        return false;
+      }
 
-    this.saveAPIKeys();
-    this.saveUsers();
+      console.log(`Found user data: ${user.name} (${user.email})`);
 
-    return true;
+      // Update API key data
+      const oldTier = keyData.tier;
+      keyData.tier = newTier;
+      keyData.limits = this.getTierLimits(newTier);
+      keyData.lastModified = new Date().toISOString();
+
+      // Update user data
+      user.tier = newTier;
+      user.lastModified = new Date().toISOString();
+
+      console.log(`Updated tier from ${oldTier} to ${newTier} for user: ${user.name}`);
+
+      // Save both files
+      const apiKeysSaved = this.saveAPIKeys();
+      const usersSaved = this.saveUsers();
+
+      if (!apiKeysSaved) {
+        console.error('Failed to save API keys file');
+        return false;
+      }
+
+      if (!usersSaved) {
+        console.error('Failed to save users file');
+        return false;
+      }
+
+      console.log(`Successfully updated tier for API key: ${apiKey.substring(0, 12)}... to ${newTier}`);
+      return true;
+    } catch (error) {
+      console.error('Error in updateTier:', error);
+      return false;
+    }
   }
 
   // Get usage statistics

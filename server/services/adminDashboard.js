@@ -256,6 +256,27 @@ class AdminDashboard {
 
   updateAPIKeyTier(apiKeyManager, apiKey, newTier) {
     try {
+      console.log(`Admin dashboard: Updating API key tier to ${newTier}`);
+      
+      // Validate inputs
+      if (!apiKey || !newTier) {
+        console.error('Missing required parameters: apiKey or newTier');
+        return {
+          success: false,
+          error: 'Missing required parameters'
+        };
+      }
+
+      // Validate tier
+      const validTiers = ['free', 'premium', 'enterprise'];
+      if (!validTiers.includes(newTier)) {
+        console.error(`Invalid tier: ${newTier}. Valid tiers are: ${validTiers.join(', ')}`);
+        return {
+          success: false,
+          error: `Invalid tier. Valid tiers are: ${validTiers.join(', ')}`
+        };
+      }
+
       const success = apiKeyManager.updateTier(apiKey, newTier);
       
       if (success) {
@@ -265,20 +286,23 @@ class AdminDashboard {
           timestamp: new Date().toISOString()
         });
         
+        console.log(`Successfully updated API key tier to ${newTier}`);
         return {
           success: true,
           message: `API key tier updated to ${newTier}`
         };
       } else {
+        console.error('Failed to update API key tier - apiKeyManager.updateTier returned false');
         return {
           success: false,
-          error: 'Failed to update API key tier'
+          error: 'Failed to update API key tier. Please check server logs for details.'
         };
       }
     } catch (error) {
+      console.error('Error in updateAPIKeyTier:', error);
       return {
         success: false,
-        error: error.message
+        error: `Internal server error: ${error.message}`
       };
     }
   }
