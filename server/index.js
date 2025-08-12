@@ -631,10 +631,15 @@ app.get('/api/admin/analytics', (req, res) => {
 
 app.get('/api/admin/users', (req, res) => {
   try {
-    const users = adminDashboard.getAllUsers(apiKeyManager);
+    // Get users with full API keys for admin
+    const users = apiKeyManager.listAPIKeys(true);
     res.json(users);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error('Error fetching users:', error);
+    res.status(500).json({ 
+      error: 'Failed to fetch users',
+      details: error.message 
+    });
   }
 });
 
@@ -650,10 +655,29 @@ app.post('/api/admin/keys/create', (req, res) => {
 app.put('/api/admin/keys/:apiKey/tier', (req, res) => {
   try {
     const { tier } = req.body;
-    const result = adminDashboard.updateAPIKeyTier(apiKeyManager, req.params.apiKey, tier);
+    const { apiKey } = req.params;
+    
+    // Find the full API key if a partial was provided
+    const fullApiKey = Object.keys(apiKeyManager.apiKeys.keys).find(
+      key => key.startsWith(apiKey)
+    );
+    
+    if (!fullApiKey) {
+      return res.status(404).json({ 
+        success: false, 
+        error: 'API key not found' 
+      });
+    }
+    
+    const result = adminDashboard.updateAPIKeyTier(apiKeyManager, fullApiKey, tier);
     res.json(result);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error('Error updating tier:', error);
+    res.status(500).json({ 
+      success: false,
+      error: 'Failed to update tier',
+      details: error.message 
+    });
   }
 });
 

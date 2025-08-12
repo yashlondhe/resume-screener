@@ -269,19 +269,22 @@ class APIKeyManager {
   }
 
   // List all API keys (admin function)
-  listAPIKeys() {
+  listAPIKeys(includeFullKey = false) {
     const keys = [];
-    Object.values(this.apiKeys.keys).forEach(keyData => {
+    Object.entries(this.apiKeys.keys).forEach(([apiKey, keyData]) => {
       const user = this.users.users[keyData.userId];
       keys.push({
-        apiKey: keyData.key.substring(0, 12) + '...',
+        apiKey: includeFullKey ? apiKey : keyData.key.substring(0, 12) + '...',
+        fullApiKey: includeFullKey ? apiKey : undefined,
         userId: keyData.userId,
-        name: user.name,
+        name: user?.name || 'Unknown User',
+        email: user?.email || 'No email',
         tier: keyData.tier,
         usage: keyData.usage,
         isActive: keyData.isActive,
         createdAt: keyData.createdAt,
-        lastUsed: keyData.lastUsed
+        lastUsed: keyData.lastUsed,
+        isAdmin: user?.role === 'admin' || user?.role === 'super_admin'
       });
     });
     return keys;
