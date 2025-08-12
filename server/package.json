@@ -4,7 +4,8 @@
   "description": "Backend server for resume screening application",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node railway-start.js",
+    "start:local": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 0",
     "build": "echo \"No build step required for Node.js server\"",

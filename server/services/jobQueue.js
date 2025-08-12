@@ -3,13 +3,26 @@ const path = require('path');
 
 class JobQueueService {
   constructor() {
-    // Initialize job queues
-    this.resumeQueue = new Queue('resume analysis', {
-      redis: {
+    // Initialize job queues with Redis URL support (including authentication)
+    let redisConfig;
+    
+    if (process.env.REDIS_URL) {
+      // Use Redis URL directly (supports redis://username:password@host:port format)
+      redisConfig = process.env.REDIS_URL;
+      console.log('Using Redis URL with authentication');
+    } else {
+      // Fallback to individual Redis configuration
+      redisConfig = {
         host: process.env.REDIS_HOST || 'localhost',
         port: process.env.REDIS_PORT || 6379,
-        password: process.env.REDIS_PASSWORD || undefined
-      },
+        password: process.env.REDIS_PASSWORD || undefined,
+        username: process.env.REDIS_USERNAME || undefined
+      };
+      console.log('Using Redis individual configuration');
+    }
+
+    this.resumeQueue = new Queue('resume analysis', {
+      redis: redisConfig,
       defaultJobOptions: {
         removeOnComplete: 10, // Keep only 10 completed jobs
         removeOnFail: 50,     // Keep 50 failed jobs for debugging
