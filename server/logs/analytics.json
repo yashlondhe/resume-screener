@@ -12,18 +12,9 @@
     "fileSizes": [],
     "errorTypes": {},
     "apiKeyUsage": {},
-    "hourlyStats": {
-      "12": 0
-    },
-    "dailyStats": {
-      "2025-08-12": {
-        "requests": 0,
-        "successes": 0,
-        "failures": 0,
-        "cacheHits": 0
-      }
-    }
+    "hourlyStats": {},
+    "dailyStats": {}
   },
-  "lastSaved": "2025-08-12T08:10:55.724Z",
+  "lastSaved": "2025-08-12T09:33:49.013Z",
   "version": "1.0"
 }
