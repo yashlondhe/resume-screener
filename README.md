@@ -5,7 +5,7 @@
 An AI-powered resume screening application that uses AI to analyze and rate resumes based on multiple criteria including content quality, structure, formatting, completeness, and length appropriateness.
 
 ![Resume Screener](https://img.shields.io/badge/Status-Production%20Ready-brightgreen) ![License](https://img.shields.io/badge/License-MIT-blue) ![Node](https://img.shields.io/badge/Node.js-18+-green) ![React](https://img.shields.io/badge/React-19+-blue)
-
+ 
 ## ✨ Features
 
 ### 🎨 **Professional UI/UX**
