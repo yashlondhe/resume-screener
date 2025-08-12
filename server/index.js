@@ -38,7 +38,8 @@ app.get('/', (req, res) => {
       ping: '/ping',
       admin: '/admin.html',
       'analyze-resume': '/api/analyze-resume',
-      'create-api-key': '/api/keys',
+      'create-api-key': '/api/keys/create',
+      'validate-api-key': '/api/keys/:apiKey/info',
       'bulk-analyze': '/api/bulk-analyze'
     },
     documentation: 'https://github.com/yashlondhe/resume-screener'
