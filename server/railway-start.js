@@ -41,11 +41,25 @@ if (missingVars.length > 0) {
 }
 
 // Check if client build exists
-const clientBuildPath = path.join(__dirname, '../client/build');
-if (fs.existsSync(clientBuildPath)) {
-  console.log('   ✅ React frontend build found');
-} else {
-  console.log('   ⚠️  React frontend build not found - frontend serving may not work');
+const possibleClientPaths = [
+  path.join(__dirname, '../client/build'),
+  path.join(process.cwd(), 'client/build'),
+  path.join('/app', 'client/build')
+];
+
+let clientBuildPath = null;
+for (const buildPath of possibleClientPaths) {
+  if (fs.existsSync(buildPath)) {
+    clientBuildPath = buildPath;
+    console.log(`   ✅ React frontend build found at: ${buildPath}`);
+    break;
+  }
+}
+
+if (!clientBuildPath) {
+  console.log('   ⚠️  React frontend build not found in any of these locations:');
+  possibleClientPaths.forEach(p => console.log(`      - ${p}`));
+  console.log('   📝 Frontend serving may not work properly');
 }
 
 // Start the main application

@@ -24,17 +24,56 @@ app.set('trust proxy', 1);
 
 // Serve React frontend static files
 if (process.env.NODE_ENV === 'production') {
-  const clientBuildPath = path.join(__dirname, '../client/build');
-  app.use(express.static(clientBuildPath));
+  const possibleClientPaths = [
+    path.join(__dirname, '../client/build'),
+    path.join(process.cwd(), 'client/build'),
+    path.join('/app', 'client/build')
+  ];
   
-  // Serve React app for all non-API routes
-  app.get('*', (req, res, next) => {
-    // Skip API routes and admin routes
-    if (req.path.startsWith('/api') || req.path.startsWith('/admin')) {
-      return next();
+  let clientBuildPath = null;
+  for (const buildPath of possibleClientPaths) {
+    if (fs.existsSync(buildPath)) {
+      clientBuildPath = buildPath;
+      console.log(`📁 Using React build from: ${buildPath}`);
+      break;
     }
-    res.sendFile(path.join(clientBuildPath, 'index.html'));
-  });
+  }
+  
+  if (clientBuildPath) {
+    app.use(express.static(clientBuildPath, {
+      maxAge: '1d',
+      etag: false
+    }));
+    
+    // Serve React app for all non-API routes
+    app.get('*', (req, res, next) => {
+      // Skip API routes and admin routes
+      if (req.path.startsWith('/api') || req.path.startsWith('/admin')) {
+        return next();
+      }
+      
+      const indexPath = path.join(clientBuildPath, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+      } else {
+        console.error('❌ index.html not found at:', indexPath);
+        res.status(404).send('Frontend not available');
+      }
+    });
+  } else {
+    console.log('⚠️  No React build found - serving API only');
+    // Serve a simple message for root path when no frontend is available
+    app.get('/', (req, res) => {
+      res.json({
+        message: 'Resume Screener API',
+        status: 'Frontend build not available',
+        endpoints: {
+          health: '/api/health',
+          admin: '/admin.html'
+        }
+      });
+    });
+  }
 }
 
 // Performance middleware
