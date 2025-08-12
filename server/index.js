@@ -302,7 +302,7 @@ app.post('/api/analyze-resume', validateAPIKey, trackProcessingTime, upload.sing
 });
 
 // Bulk analysis endpoint with job queue
-app.post('/api/bulk-analyze', trackProcessingTime, upload.array('resumes', 10), async (req, res) => {
+app.post('/api/bulk-analyze', validateAPIKey, trackProcessingTime, upload.array('resumes', 10), async (req, res) => {
   try {
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({ error: 'No files uploaded' });
