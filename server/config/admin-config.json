@@ -1,0 +1,60 @@
+{
+  "adminUsers": {
+    "admin": {
+      "username": "admin",
+      "password": "admin123",
+      "role": "super_admin",
+      "createdAt": "2025-08-12T06:21:56.901Z",
+      "lastLogin": "2025-08-12T07:18:24.859Z",
+      "permissions": [
+        "view_analytics",
+        "manage_api_keys",
+        "system_control",
+        "user_management"
+      ]
+    }
+  },
+  "settings": {
+    "maintenanceMode": false,
+    "maxDailyRequests": 1000,
+    "alertThresholds": {
+      "errorRate": 10,
+      "responseTime": 5000,
+      "diskUsage": 80
+    },
+    "features": {
+      "bulkAnalysis": true,
+      "apiAccess": true,
+      "caching": true,
+      "rateLimiting": true
+    }
+  },
+  "notifications": {
+    "email": {
+      "enabled": false,
+      "smtp": {
+        "host": "",
+        "port": 587,
+        "user": "",
+        "password": ""
+      },
+      "alerts": [
+        "system_error",
+        "high_usage",
+        "maintenance"
+      ]
+    },
+    "webhook": {
+      "enabled": false,
+      "url": "",
+      "events": [
+        "api_key_created",
+        "tier_upgraded",
+        "system_alert"
+      ]
+    }
+  },
+  "created": "2025-08-12T06:21:56.901Z",
+  "version": "1.0",
+  "lastModified": "2025-08-12T07:18:24.859Z"
+}

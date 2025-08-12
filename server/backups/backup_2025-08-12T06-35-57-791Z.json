@@ -1,0 +1,189 @@
+{
+  "timestamp": "2025-08-12T06:35:57.791Z",
+  "version": "1.0",
+  "config": {
+    "adminUsers": {
+      "admin": {
+        "username": "admin",
+        "password": "admin123",
+        "role": "super_admin",
+        "createdAt": "2025-08-12T06:21:56.901Z",
+        "lastLogin": "2025-08-12T06:31:48.555Z",
+        "permissions": [
+          "view_analytics",
+          "manage_api_keys",
+          "system_control",
+          "user_management"
+        ]
+      }
+    },
+    "settings": {
+      "maintenanceMode": false,
+      "maxDailyRequests": 1000,
+      "alertThresholds": {
+        "errorRate": 10,
+        "responseTime": 5000,
+        "diskUsage": 80
+      },
+      "features": {
+        "bulkAnalysis": true,
+        "apiAccess": true,
+        "caching": true,
+        "rateLimiting": true
+      }
+    },
+    "notifications": {
+      "email": {
+        "enabled": false,
+        "smtp": {
+          "host": "",
+          "port": 587,
+          "user": "",
+          "password": ""
+        },
+        "alerts": [
+          "system_error",
+          "high_usage",
+          "maintenance"
+        ]
+      },
+      "webhook": {
+        "enabled": false,
+        "url": "",
+        "events": [
+          "api_key_created",
+          "tier_upgraded",
+          "system_alert"
+        ]
+      }
+    },
+    "created": "2025-08-12T06:21:56.901Z",
+    "version": "1.0",
+    "lastModified": "2025-08-12T06:31:48.555Z"
+  },
+  "apiKeys": {
+    "keys": {
+      "rsk_c7196ee5e86a507bb3aade21ff400faca29aa8efc95d8afb42caef4424d06398": {
+        "key": "rsk_c7196ee5e86a507bb3aade21ff400faca29aa8efc95d8afb42caef4424d06398",
+        "userId": "user_1754980151788",
+        "name": "Test User",
+        "email": "test@example.com",
+        "tier": "free",
+        "createdAt": "2025-08-12T06:29:11.788Z",
+        "lastUsed": null,
+        "isActive": true,
+        "limits": {
+          "dailyRequests": 10,
+          "monthlyRequests": 100,
+          "bulkAnalysis": false,
+          "maxFileSize": 5242880,
+          "maxBatchSize": 1,
+          "features": [
+            "basic_analysis",
+            "industry_detection",
+            "ats_check"
+          ]
+        },
+        "usage": {
+          "totalRequests": 0,
+          "dailyRequests": 0,
+          "monthlyRequests": 0,
+          "lastResetDate": "2025-08-12"
+        }
+      },
+      "rsk_2a8380eb13ebdf8f41da630b7e5e74b97a4b9cd246fee5b379f1b82be25f0e01": {
+        "key": "rsk_2a8380eb13ebdf8f41da630b7e5e74b97a4b9cd246fee5b379f1b82be25f0e01",
+        "userId": "user_1754980275288",
+        "name": "Test User",
+        "email": "test@example.com",
+        "tier": "premium",
+        "createdAt": "2025-08-12T06:31:15.288Z",
+        "lastUsed": null,
+        "isActive": true,
+        "limits": {
+          "dailyRequests": 100,
+          "monthlyRequests": 2000,
+          "bulkAnalysis": true,
+          "maxFileSize": 10485760,
+          "maxBatchSize": 5,
+          "features": [
+            "basic_analysis",
+            "industry_detection",
+            "ats_check",
+            "detailed_feedback",
+            "export_results"
+          ]
+        },
+        "usage": {
+          "totalRequests": 0,
+          "dailyRequests": 0,
+          "monthlyRequests": 0,
+          "lastResetDate": "2025-08-12"
+        },
+        "lastModified": "2025-08-12T06:32:42.612Z"
+      }
+    },
+    "created": "2025-08-12T06:21:56.889Z",
+    "version": "1.0",
+    "lastModified": "2025-08-12T06:32:42.612Z"
+  },
+  "users": {
+    "users": {
+      "user_1754980151788": {
+        "userId": "user_1754980151788",
+        "name": "Test User",
+        "email": "test@example.com",
+        "tier": "free",
+        "apiKeys": [
+          "rsk_c7196ee5e86a507bb3aade21ff400faca29aa8efc95d8afb42caef4424d06398"
+        ],
+        "createdAt": "2025-08-12T06:29:11.788Z",
+        "isActive": true
+      },
+      "user_1754980275288": {
+        "userId": "user_1754980275288",
+        "name": "Test User",
+        "email": "test@example.com",
+        "tier": "premium",
+        "apiKeys": [
+          "rsk_2a8380eb13ebdf8f41da630b7e5e74b97a4b9cd246fee5b379f1b82be25f0e01"
+        ],
+        "createdAt": "2025-08-12T06:31:15.288Z",
+        "isActive": true,
+        "lastModified": "2025-08-12T06:32:42.612Z"
+      }
+    },
+    "created": "2025-08-12T06:21:56.899Z",
+    "version": "1.0",
+    "lastModified": "2025-08-12T06:32:42.612Z"
+  },
+  "analytics": {
+    "counters": {
+      "totalRequests": 0,
+      "successfulAnalyses": 0,
+      "failedAnalyses": 0,
+      "cacheHits": 0,
+      "cacheMisses": 0,
+      "bulkAnalyses": 0,
+      "industryDetections": {},
+      "atsScores": [],
+      "processingTimes": [],
+      "fileSizes": [],
+      "errorTypes": {},
+      "apiKeyUsage": {},
+      "hourlyStats": {
+        "12": 0
+      },
+      "dailyStats": {
+        "2025-08-12": {
+          "requests": 0,
+          "successes": 0,
+          "failures": 0,
+          "cacheHits": 0
+        }
+      }
+    },
+    "lastSaved": "2025-08-12T06:35:55.392Z",
+    "version": "1.0"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "counters": {
+    "totalRequests": 0,
+    "successfulAnalyses": 0,
+    "failedAnalyses": 0,
+    "cacheHits": 0,
+    "cacheMisses": 0,
+    "bulkAnalyses": 0,
+    "industryDetections": {},
+    "atsScores": [],
+    "processingTimes": [],
+    "fileSizes": [],
+    "errorTypes": {},
+    "apiKeyUsage": {},
+    "hourlyStats": {
+      "12": 0
+    },
+    "dailyStats": {
+      "2025-08-12": {
+        "requests": 0,
+        "successes": 0,
+        "failures": 0,
+        "cacheHits": 0
+      }
+    }
+  },
+  "lastSaved": "2025-08-12T07:30:55.568Z",
+  "version": "1.0"
+}

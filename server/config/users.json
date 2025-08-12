@@ -1,0 +1,52 @@
+{
+  "users": {
+    "user_1754980151788": {
+      "userId": "user_1754980151788",
+      "name": "Test User",
+      "email": "test@example.com",
+      "tier": "free",
+      "apiKeys": [
+        "rsk_c7196ee5e86a507bb3aade21ff400faca29aa8efc95d8afb42caef4424d06398"
+      ],
+      "createdAt": "2025-08-12T06:29:11.788Z",
+      "isActive": true
+    },
+    "user_1754980275288": {
+      "userId": "user_1754980275288",
+      "name": "Test User",
+      "email": "test@example.com",
+      "tier": "premium",
+      "apiKeys": [
+        "rsk_2a8380eb13ebdf8f41da630b7e5e74b97a4b9cd246fee5b379f1b82be25f0e01"
+      ],
+      "createdAt": "2025-08-12T06:31:15.288Z",
+      "isActive": true,
+      "lastModified": "2025-08-12T06:32:42.612Z"
+    },
+    "user_1754981739705": {
+      "userId": "user_1754981739705",
+      "name": "yash",
+      "email": "yash@yesy.com",
+      "tier": "free",
+      "apiKeys": [
+        "rsk_c1346cb6f42df5e19daf823b75057ffe5f618ee19e4e7e01129aacfbf87a292f"
+      ],
+      "createdAt": "2025-08-12T06:55:39.705Z",
+      "isActive": true
+    },
+    "user_1754981934930": {
+      "userId": "user_1754981934930",
+      "name": "User",
+      "email": "user@gmail.com",
+      "tier": "free",
+      "apiKeys": [
+        "rsk_f76ce6a5ddfd6b0175f666e66718432c4b24a012b235fd7a13f253b92d16f84e"
+      ],
+      "createdAt": "2025-08-12T06:58:54.930Z",
+      "isActive": true
+    }
+  },
+  "created": "2025-08-12T06:21:56.899Z",
+  "version": "1.0",
+  "lastModified": "2025-08-12T06:58:54.931Z"
+}

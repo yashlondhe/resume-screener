@@ -1,0 +1,122 @@
+{
+  "keys": {
+    "rsk_c7196ee5e86a507bb3aade21ff400faca29aa8efc95d8afb42caef4424d06398": {
+      "key": "rsk_c7196ee5e86a507bb3aade21ff400faca29aa8efc95d8afb42caef4424d06398",
+      "userId": "user_1754980151788",
+      "name": "Test User",
+      "email": "test@example.com",
+      "tier": "free",
+      "createdAt": "2025-08-12T06:29:11.788Z",
+      "lastUsed": null,
+      "isActive": true,
+      "limits": {
+        "dailyRequests": 10,
+        "monthlyRequests": 100,
+        "bulkAnalysis": false,
+        "maxFileSize": 5242880,
+        "maxBatchSize": 1,
+        "features": [
+          "basic_analysis",
+          "industry_detection",
+          "ats_check"
+        ]
+      },
+      "usage": {
+        "totalRequests": 0,
+        "dailyRequests": 0,
+        "monthlyRequests": 0,
+        "lastResetDate": "2025-08-12"
+      }
+    },
+    "rsk_2a8380eb13ebdf8f41da630b7e5e74b97a4b9cd246fee5b379f1b82be25f0e01": {
+      "key": "rsk_2a8380eb13ebdf8f41da630b7e5e74b97a4b9cd246fee5b379f1b82be25f0e01",
+      "userId": "user_1754980275288",
+      "name": "Test User",
+      "email": "test@example.com",
+      "tier": "premium",
+      "createdAt": "2025-08-12T06:31:15.288Z",
+      "lastUsed": null,
+      "isActive": true,
+      "limits": {
+        "dailyRequests": 100,
+        "monthlyRequests": 2000,
+        "bulkAnalysis": true,
+        "maxFileSize": 10485760,
+        "maxBatchSize": 5,
+        "features": [
+          "basic_analysis",
+          "industry_detection",
+          "ats_check",
+          "detailed_feedback",
+          "export_results"
+        ]
+      },
+      "usage": {
+        "totalRequests": 0,
+        "dailyRequests": 0,
+        "monthlyRequests": 0,
+        "lastResetDate": "2025-08-12"
+      },
+      "lastModified": "2025-08-12T06:32:42.612Z"
+    },
+    "rsk_c1346cb6f42df5e19daf823b75057ffe5f618ee19e4e7e01129aacfbf87a292f": {
+      "key": "rsk_c1346cb6f42df5e19daf823b75057ffe5f618ee19e4e7e01129aacfbf87a292f",
+      "userId": "user_1754981739705",
+      "name": "yash",
+      "email": "yash@yesy.com",
+      "tier": "free",
+      "createdAt": "2025-08-12T06:55:39.705Z",
+      "lastUsed": null,
+      "isActive": true,
+      "limits": {
+        "dailyRequests": 10,
+        "monthlyRequests": 100,
+        "bulkAnalysis": false,
+        "maxFileSize": 5242880,
+        "maxBatchSize": 1,
+        "features": [
+          "basic_analysis",
+          "industry_detection",
+          "ats_check"
+        ]
+      },
+      "usage": {
+        "totalRequests": 0,
+        "dailyRequests": 0,
+        "monthlyRequests": 0,
+        "lastResetDate": "2025-08-12"
+      }
+    },
+    "rsk_f76ce6a5ddfd6b0175f666e66718432c4b24a012b235fd7a13f253b92d16f84e": {
+      "key": "rsk_f76ce6a5ddfd6b0175f666e66718432c4b24a012b235fd7a13f253b92d16f84e",
+      "userId": "user_1754981934930",
+      "name": "User",
+      "email": "user@gmail.com",
+      "tier": "free",
+      "createdAt": "2025-08-12T06:58:54.930Z",
+      "lastUsed": "2025-08-12T07:18:10.716Z",
+      "isActive": true,
+      "limits": {
+        "dailyRequests": 10,
+        "monthlyRequests": 100,
+        "bulkAnalysis": false,
+        "maxFileSize": 5242880,
+        "maxBatchSize": 1,
+        "features": [
+          "basic_analysis",
+          "industry_detection",
+          "ats_check"
+        ]
+      },
+      "usage": {
+        "totalRequests": 1,
+        "dailyRequests": 1,
+        "monthlyRequests": 1,
+        "lastResetDate": "2025-08-12"
+      }
+    }
+  },
+  "created": "2025-08-12T06:21:56.889Z",
+  "version": "1.0",
+  "lastModified": "2025-08-12T07:18:10.718Z"
+}

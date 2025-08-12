@@ -1,0 +1,7 @@
+{"timestamp":"2025-08-12T06:29:11.788Z","eventType":"api_key_created","userId":"user_1754980151788","tier":"free","email":"test@example.com"}
+{"timestamp":"2025-08-12T06:29:29.306Z","eventType":"quota_exceeded","apiKey":"rsk_c7196ee5e86a507bb3aade21ff400faca29aa8efc95d8afb42caef4424d06398"}
+{"timestamp":"2025-08-12T06:31:15.289Z","eventType":"api_key_created","userId":"user_1754980275288","tier":"free","email":"test@example.com"}
+{"timestamp":"2025-08-12T06:32:42.612Z","eventType":"tier_upgraded","apiKey":"rsk_2a8380eb13ebdf8f41da630b7e5e74b97a4b9cd246fee5b379f1b82be25f0e01","userId":"user_1754980275288","newTier":"premium"}
+{"timestamp":"2025-08-12T06:58:54.931Z","eventType":"api_key_created","userId":"user_1754981934930","tier":"free","email":"user@gmail.com"}
+{"timestamp":"2025-08-12T07:18:10.715Z","eventType":"analysis_request","apiKey":"rsk_f76ce6a5ddfd6b0175f666e66718432c4b24a012b235fd7a13f253b92d16f84e","userId":"user_1754981934930","tier":"free","fileSize":265248}
+{"timestamp":"2025-08-12T07:18:10.716Z","eventType":"analysis_success","apiKey":"rsk_f76ce6a5ddfd6b0175f666e66718432c4b24a012b235fd7a13f253b92d16f84e","userId":"user_1754981934930","industry":"technology","atsScore":8,"processingTime":5196,"fileSize":265248}

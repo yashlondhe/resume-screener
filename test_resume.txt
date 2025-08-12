@@ -1,0 +1,47 @@
+JOHN DOE
+Software Engineer
+
+Contact Information:
+Email: john.doe@email.com
+Phone: (555) 123-4567
+LinkedIn: linkedin.com/in/johndoe
+
+PROFESSIONAL SUMMARY
+Experienced Software Engineer with 5+ years of expertise in full-stack development, specializing in JavaScript, React, Node.js, and cloud technologies. Proven track record of delivering scalable web applications and leading development teams.
+
+TECHNICAL SKILLS
+• Programming Languages: JavaScript, Python, Java, TypeScript
+• Frontend: React, Vue.js, HTML5, CSS3, Bootstrap
+• Backend: Node.js, Express, Django, Spring Boot
+• Databases: MongoDB, PostgreSQL, MySQL, Redis
+• Cloud & DevOps: AWS, Docker, Kubernetes, CI/CD
+• Tools: Git, JIRA, VS Code, Postman
+
+PROFESSIONAL EXPERIENCE
+
+Senior Software Engineer | TechCorp Inc. | 2021 - Present
+• Led development of microservices architecture serving 1M+ users
+• Implemented CI/CD pipelines reducing deployment time by 60%
+• Mentored junior developers and conducted code reviews
+• Built RESTful APIs and integrated third-party services
+
+Software Engineer | StartupXYZ | 2019 - 2021
+• Developed responsive web applications using React and Node.js
+• Collaborated with cross-functional teams in Agile environment
+• Optimized database queries improving performance by 40%
+• Participated in system design and architecture decisions
+
+EDUCATION
+Bachelor of Science in Computer Science
+University of Technology | 2015 - 2019
+GPA: 3.8/4.0
+
+PROJECTS
+• E-commerce Platform: Built full-stack application with React, Node.js, and MongoDB
+• Task Management System: Developed team collaboration tool with real-time updates
+• Weather API Service: Created RESTful API serving weather data to mobile apps
+
+CERTIFICATIONS
+• AWS Certified Solutions Architect
+• MongoDB Certified Developer
+• Scrum Master Certification
