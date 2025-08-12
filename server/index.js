@@ -19,6 +19,9 @@ const adminDashboard = require('./services/adminDashboard');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Trust proxy for Railway deployment (fixes rate limiting behind proxy)
+app.set('trust proxy', 1);
+
 // Performance middleware
 app.use(compression()); // Enable gzip compression
 app.use(helmet({
