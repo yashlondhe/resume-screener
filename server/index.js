@@ -76,6 +76,11 @@ if (process.env.NODE_ENV === 'production') {
   }
 }
 
+// Simple health check route (before other middleware)
+app.get('/ping', (req, res) => {
+  res.json({ status: 'pong', timestamp: new Date().toISOString() });
+});
+
 // Performance middleware
 app.use(compression()); // Enable gzip compression
 app.use(helmet({
@@ -766,4 +771,25 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log('   - Background job processing');
   console.log('   - Enhanced rate limiting');
   console.log('🎯 Resume Screener API ready for requests!');
+}).on('error', (err) => {
+  console.error('❌ Server failed to start:', err);
+  process.exit(1);
+});
+
+// Global error handlers to prevent crashes
+process.on('uncaughtException', (err) => {
+  console.error('❌ Uncaught Exception:', err);
+  console.error('Stack:', err.stack);
+  // Don't exit in production, just log the error
+  if (process.env.NODE_ENV !== 'production') {
+    process.exit(1);
+  }
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ Unhandled Rejection at:', promise, 'reason:', reason);
+  // Don't exit in production, just log the error
+  if (process.env.NODE_ENV !== 'production') {
+    process.exit(1);
+  }
 });

@@ -1,39 +1,20 @@
 {
   "counters": {
-    "totalRequests": 1,
-    "successfulAnalyses": 1,
+    "totalRequests": 0,
+    "successfulAnalyses": 0,
     "failedAnalyses": 0,
     "cacheHits": 0,
     "cacheMisses": 0,
     "bulkAnalyses": 0,
-    "industryDetections": {
-      "technology": 1
-    },
-    "atsScores": [
-      8
-    ],
-    "processingTimes": [
-      5196
-    ],
-    "fileSizes": [
-      265248
-    ],
+    "industryDetections": {},
+    "atsScores": [],
+    "processingTimes": [],
+    "fileSizes": [],
     "errorTypes": {},
-    "apiKeyUsage": {
-      "rsk_f76ce6a5ddfd6b0175f666e66718432c4b24a012b235fd7a13f253b92d16f84e": 1
-    },
-    "hourlyStats": {
-      "12": 1
-    },
-    "dailyStats": {
-      "2025-08-12": {
-        "requests": 1,
-        "successes": 1,
-        "failures": 0,
-        "cacheHits": 0
-      }
-    }
+    "apiKeyUsage": {},
+    "hourlyStats": {},
+    "dailyStats": {}
   },
-  "lastSaved": "2025-08-12T10:02:52.447Z",
+  "lastSaved": "2025-08-12T11:33:49.313Z",
   "version": "1.0"
 }
