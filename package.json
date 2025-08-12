@@ -4,7 +4,8 @@
   "description": "AI-powered resume screening application",
   "main": "server/index.js",
   "scripts": {
-    "start": "cd server && node test-server.js",
+    "start": "cd server && node ultra-simple.js",
+    "start:test": "cd server && node test-server.js",
     "start:full": "cd server && npm run start:full",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && npm run dev",
