@@ -631,8 +631,8 @@ app.get('/api/admin/analytics', (req, res) => {
 
 app.get('/api/admin/users', (req, res) => {
   try {
-    // Get users with full API keys for admin
-    const users = apiKeyManager.listAPIKeys(true);
+    // Get users without full API keys for admin dashboard
+    const users = apiKeyManager.listAPIKeys(false);
     res.json(users);
   } catch (error) {
     console.error('Error fetching users:', error);
