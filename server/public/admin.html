@@ -671,14 +671,14 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>API Key</th>
+                                <!-- <th>API Key</th-->
                                 <th>User ID</th>
                                 <th>Tier</th>
-                                <th>Usage</th>
+                                <!--th>Usage</th-->
                                 <th>Status</th>
-                                <th>Created</th>
-                                <th>Last Used</th>
-                                <th>Actions</th>
+                                <!--th>Created</th-->
+                                <!--th>Last Used</th-->
+                                <th>Change Tier</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -697,7 +697,7 @@
                                 ${user.isAdmin ? '<span class="admin-badge">ADMIN</span>' : ''}
                             </td>
                             <td>${user.email || 'N/A'}</td>
-                            <td class="api-key-cell">
+                            <!--td class="api-key-cell">
                                 <div class="api-key-container">
                                     <code class="api-key-display">${apiKeyDisplay}</code>
                                     ${apiKeyDisplay !== 'N/A' ? `
@@ -706,24 +706,24 @@
                                         </button>
                                     ` : ''}
                                 </div>
-                            </td>
+                            </td-->
                             <td><code class="user-id">${user.userId}</code></td>
                             <td>
                                 <span class="tier-badge tier-${user.tier}">${user.tier.toUpperCase()}</span>
                             </td>
-                            <td class="usage-cell">
+                            <!--td class="usage-cell">
                                 <div class="usage-info">
                                     <div>Monthly: ${usage.monthlyRequests}/${monthlyLimit}</div>
                                     <div>Total: ${usage.totalRequests}</div>
                                 </div>
-                            </td>
+                            </td-->
                             <td>
                                 <span class="status-badge ${user.isActive ? 'status-active' : 'status-inactive'}">
                                     ${user.isActive ? 'Active' : 'Inactive'}
                                 </span>
                             </td>
-                            <td>${new Date(user.createdAt).toLocaleDateString()}</td>
-                            <td>${user.lastUsed ? new Date(user.lastUsed).toLocaleDateString() : 'Never'}</td>
+                            <!--td>${new Date(user.createdAt).toLocaleDateString()}</td-->
+                            <!--td>${user.lastUsed ? new Date(user.lastUsed).toLocaleDateString() : 'Never'}</td-->
                             <td class="actions-cell">
                                 <select class="tier-select" data-api-key="${apiKeyDisplay}" data-current-tier="${user.tier}">
                                     <option value="free" ${user.tier === 'free' ? 'selected' : ''}>Free</option>
